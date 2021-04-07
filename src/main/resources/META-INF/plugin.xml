@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>com.tienpx.pt_flutter_architecture_plugin</id>
+    <name>PT Flutter Architecture</name>
+    <vendor email="tienpx.xxx@gmail.com" url="http://www.yourcompany.com">PXT</vendor>
+
+    <description><![CDATA[Enter short description for your plugin here.<br><em>most HTML tags may be used</em>]]></description>
+
+    <depends>com.intellij.modules.json</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.all</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Dart</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>io.flutter</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 instance="com.tienpx.setting.AppSettingsConfigurable"
+                                 id="com.tienpx.setting.AppSettingsConfigurable"
+                                 displayName="PT Flutter Architecture: Assets Generator"/>
+        <applicationService serviceImplementation="com.tienpx.setting.PluginSetting"/>
+    </extensions>
+
+    <actions>
+        <group id="org.intellij.sdk.action.GroupedActions" text="PT Flutter Tools" popup="true" icon="LibraryIcons.PT_ROOT_GROUP">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="org.intellij.sdk.action.PopupDialogAction"/>
+            <action id="action.generateAssets" class="com.tienpx.actions.GenerateAssetsAction" text="Generate Flutter Assets"
+                    description="Generate Assets class">
+            </action>
+            <action id="action.generateJsonFactory" class="com.tienpx.actions.GenerateJsonFactoryAction" text="Generate JSON Factories"
+                    description="Generate JSON Factories">
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
